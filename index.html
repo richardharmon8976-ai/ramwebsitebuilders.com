@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 </head>
 <body>
 
@@ -177,8 +177,18 @@
 <section class="final-cta">
   <div class="container">
     <h2>Ready to fix your website?</h2>
-    <p>Book a free 15-minute call. No pressure, no upsell games.</p>
-    <a href="/contact/#book" class="btn btn-primary btn-arrow">Book My Free Call</a>
+    <p>Leave your email and we'll reach out to set up a free 15-minute call. No payment, no checkout, no pressure.</p>
+    <form class="cta-form" action="https://formsubmit.co/ajax/richard.harmon8976@gmail.com" method="POST"
+          data-mailform data-success="Got it — we'll email you shortly to set up your free call.">
+      <input type="hidden" name="_subject" value="New free-call request from ramwebsitebuilders.com (home page)">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com" aria-label="Your email address">
+      <button type="submit" class="btn btn-primary btn-arrow">Request my call</button>
+    </form>
+    <p class="form-status" role="status" aria-live="polite"></p>
+    <p class="cta-form-note">Prefer a form with more detail? <a href="/contact/#book">Use the contact page →</a></p>
     <div><a href="https://ram-website-builders.myshopify.com/" class="secondary-link">Or browse all packages →</a></div>
   </div>
 </section>
@@ -237,6 +247,6 @@
   </div>
 </footer>
 
-<script src="/assets/main.js?v=3"></script>
+<script src="/assets/main.js?v=4"></script>
 </body>
 </html>
