@@ -77,6 +77,42 @@
   window.addEventListener('resize', onScrollMotion, { passive: true });
   render();
 
+  // Contact / newsletter forms -> FormSubmit (AJAX, lands in the owner's inbox)
+  document.querySelectorAll('form[data-mailform]').forEach(form => {
+    const status = form.querySelector('.form-status');
+    const submitBtn = form.querySelector('[type="submit"]');
+    const setStatus = (msg, kind) => {
+      if (!status) return;
+      status.textContent = msg;
+      status.className = 'form-status' + (kind ? ' ' + kind : '');
+    };
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      // Honeypot: if filled, silently pretend success (it's a bot)
+      const honey = form.querySelector('input[name="_honey"]');
+      if (honey && honey.value) { form.reset(); setStatus(form.dataset.success || 'Thanks!', 'ok'); return; }
+      const originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      setStatus('', '');
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new URLSearchParams(new FormData(form))
+        });
+        let ok = res.ok;
+        try { const data = await res.json(); ok = ok && (data.success === true || data.success === 'true'); } catch (_) {}
+        if (!ok) throw new Error('bad response');
+        form.reset();
+        setStatus(form.dataset.success || "Thanks — we'll be in touch shortly.", 'ok');
+      } catch (_) {
+        setStatus("Couldn't send that — please email richard.harmon8976@gmail.com directly.", 'err');
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+      }
+    });
+  });
+
   // Mark active nav link based on current pathname
   const path = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav-links a').forEach(a => {
