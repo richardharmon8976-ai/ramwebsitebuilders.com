@@ -14,15 +14,17 @@ You bought the domain — great. The site is already pointing at it in code. The
    - **Leave this page open** — you'll come back to it after step 2.
 6. Click **Add** again, this time with `www.ramwebsites.com` so both versions work.
 
-## 2. Update DNS at your domain registrar (3 minutes)
+## 2. Update DNS at IONOS (3 minutes)
 
-Wherever you bought ramwebsites.com (likely Namecheap, since that's where your other domain is — but might be Squarespace/Google, GoDaddy, Porkbun, etc.):
+You bought ramwebsites.com at IONOS:
 
-1. Log into your registrar's account.
-2. Find **ramwebsites.com** in your domain list.
-3. Open **DNS settings** / **Advanced DNS** / **DNS records**.
-4. **Delete** any existing A or CNAME records on `@` and `www` (they're probably placeholders).
-5. **Add the two records Vercel showed you** in step 1.5. Save.
+1. Log in at **ionos.com** → open the menu → **Domains & SSL**.
+2. Find **ramwebsites.com** in your domain list and click the **gear icon → DNS** (or click the domain, then the **DNS** tab).
+3. You'll see a list of records IONOS pre-created (they point the domain at an IONOS parking page).
+4. **Edit the A record** whose host is `@`: change its value to `76.76.21.21`. If there are several A records on `@`, delete the extras so only this one remains.
+5. **Delete any AAAA records** on `@` (IONOS adds these; they'll fight with Vercel).
+6. **For `www`:** if a record on `www` exists, edit it; otherwise click **Add record** → type **CNAME** → host `www` → value `cname.vercel-dns.com`.
+7. Save. (If Vercel showed you different values in step 1.5, use Vercel's values.)
 
 DNS usually propagates in 5–30 minutes. Sometimes up to an hour. Vercel will auto-issue an SSL certificate as soon as it detects the records, so https will work without you doing anything.
 
