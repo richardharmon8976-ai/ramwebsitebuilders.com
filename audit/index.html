@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free 5-Minute Website Audit | RAM Website Builders</title>
+<meta name="description" content="Answer 8 quick yes/no questions. Get an honest score on what your current website is doing right and what's costing you customers. Free, instant, no signup.">
+<meta property="og:title" content="Free 5-Minute Website Audit — RAM Website Builders">
+<meta property="og:description" content="Answer 8 quick yes/no questions. Get an honest score on what's costing your business customers.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ramwebsites.site/audit/">
+<meta property="og:url" content="https://ramwebsites.site/audit/">
+<meta property="og:site_name" content="RAM Website Builders">
+<meta property="og:image" content="https://ramwebsites.site/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://ramwebsites.site/assets/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=6">
+<style>
+  .audit { max-width: 720px; margin: 0 auto; }
+  .audit-q {
+    border-top: 1px solid var(--rule);
+    padding: 22px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px 24px;
+    align-items: center;
+  }
+  .audit-q:last-of-type { border-bottom: 1px solid var(--rule); }
+  .audit-q h3 { margin: 0; font-size: 1.1rem; font-weight: 500; }
+  .audit-q .qnum {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: .1em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .audit-q .hint { color: var(--text-light); font-size: .9rem; margin: 6px 0 0; }
+  .yn { display: inline-flex; gap: 6px; }
+  .yn button {
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .18s var(--ease);
+  }
+  .yn button:hover { border-color: var(--gold); color: var(--gold-light); }
+  .yn button.on[data-v="yes"] { background: rgba(170, 200, 140, .12); border-color: rgba(170, 200, 140, .5); color: #B8D69A; }
+  .yn button.on[data-v="no"] { background: rgba(224, 123, 123, .12); border-color: rgba(224, 123, 123, .5); color: #E07B7B; }
+
+  .audit-meter {
+    margin: 40px 0 32px;
+    padding: 28px 30px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px;
+  }
+  .audit-meter .label { font-family: var(--font-mono); font-size: .74rem; color: var(--text-light); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
+  .audit-meter h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0; color: var(--navy); }
+  .audit-meter .score {
+    font-family: var(--font-display);
+    font-size: clamp(3.4rem, 6vw, 4.8rem);
+    font-weight: 400;
+    color: var(--gold-light);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .audit-meter .score span { font-size: 1.2rem; color: var(--text-light); font-family: var(--font-mono); letter-spacing: .04em; }
+
+  .audit-result {
+    margin: 0 0 40px;
+    padding: 24px 26px;
+    background: transparent;
+    border-left: 3px solid var(--gold);
+    color: var(--text);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    display: none;
+  }
+  .audit-result.show { display: block; }
+
+  @media (max-width: 540px) {
+    .audit-q { grid-template-columns: 1fr; gap: 14px; }
+    .audit-meter { grid-template-columns: 1fr; text-align: left; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="RAM Website Builders home">
+      <span class="brand-mark" aria-hidden="true">RAM</span>
+      <span class="brand-text">
+        <strong>Website Builders</strong>
+        <span>Built in 5 Days</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works/">How It Works</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/why-us/">Why Us</a></li>
+      <li><a href="/faq/">FAQ</a></li>
+    </ul>
+    <a href="/contact/#book" class="btn btn-primary nav-cta">Book Free Call</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" style="padding-bottom:30px;">
+  <div class="container hero-inner">
+    <span class="eyebrow">Free Audit · 5 minutes</span>
+    <h1>How much is your current website <span class="underlined">costing</span> you?</h1>
+    <p class="hero-sub">Eight quick yes-or-no questions about your existing site. Honest score at the end. No signup, no upsell — and if you want a written audit emailed to you, leave your address at the bottom.</p>
+  </div>
+</section>
+
+<section style="padding-top:10px; padding-bottom:40px;">
+  <div class="container">
+    <div class="audit reveal" id="audit">
+
+      <div class="audit-meter">
+        <div>
+          <div class="label">Your score · live</div>
+          <h2 id="meter-h">Answer the questions →</h2>
+        </div>
+        <div class="score"><span id="meter-score">0</span><span>/8</span></div>
+      </div>
+
+      <div class="audit-q" data-q="1">
+        <div>
+          <span class="qnum">01 / Speed</span>
+          <h3>Does your site load in under 3 seconds on a phone?</h3>
+          <p class="hint">Check at pagespeed.web.dev. Anything above 3s loses more than half of mobile visitors.</p>
+        </div>
+        <div class="yn"><button data-v="yes">Yes</button><button data-v="no">No</button></div>
+      </div>
+
+      <div class="audit-q" data-q="2">
+        <div>
+          <span class="qnum">02 / Mobile</span>
+          <h3>Is your phone number tap-to-call on mobile?</h3>
+          <p class="hint">Open your site on your phone, tap the number. Does the dialer open?</p>
+        </div>
+        <div class="yn"><button data-v="yes">Yes</button><button data-v="no">No</button></div>
+      </div>
+
+      <div class="audit-q" data-q="3">
+        <div>
+          <span class="qnum">03 / Clarity</span>
+          <h3>Can a visitor tell what you do and where, in 3 seconds?</h3>
+          <p class="hint">Stand five feet back. Squint. Is your service and city clearly stated above the fold?</p>
+        </div>
+        <div class="yn"><button data-v="yes">Yes</button><button data-v="no">No</button></div>
+      </div>
+
+      <div class="audit-q" data-q="4">
+        <div>
+          <span class="qnum">04 / Local SEO</span>
+          <h3>Are your hours, address, and service area visible on every page?</h3>
+          <p class="hint">If a visitor has to click into "Contact" to find these, you're losing them.</p>
+        </div>
+        <div class="yn"><button data-v="yes">Yes</button><button data-v="no">No</button></div>
+      </div>
+
+      <div class="audit-q" data-q="5">
+        <div>
+          <span class="qnum">05 / Action</span>
+          <h3>Does every page end with a clear button — Book, Call, or Quote?</h3>
+          <p class="hint">No clear next step = the visitor leaves.</p>
+        </div>
+        <div class="yn"><button data-v="yes">Yes</button><button data-v="no">No</button></div>
+      </div>
+
+      <div class="audit-q" data-q="6">
+        <div>
+          <span class="qnum">06 / Trust</span>
+          <h3>Are real customer reviews (with names) visible on the homepage?</h3>
+          <p class="hint">91% of consumers read reviews before hiring a service business.</p>
+        </div>
+        <div class="yn"><button data-v="yes">Yes</button><button data-v="no">No</button></div>
+      </div>
+
+      <div class="audit-q" data-q="7">
+        <div>
+          <span class="qnum">07 / Photos</span>
+          <h3>Are your photos real — your team, truck, storefront, work — not stock?</h3>
+          <p class="hint">Three real photos build more trust than a wall of stock images.</p>
+        </div>
+        <div class="yn"><button data-v="yes">Yes</button><button data-v="no">No</button></div>
+      </div>
+
+      <div class="audit-q" data-q="8">
+        <div>
+          <span class="qnum">08 / Freshness</span>
+          <h3>Has anything on your site been updated in the last 12 months?</h3>
+          <p class="hint">Google ranks fresh sites higher. So do customers.</p>
+        </div>
+        <div class="yn"><button data-v="yes">Yes</button><button data-v="no">No</button></div>
+      </div>
+
+      <div class="audit-result" id="audit-result" role="status" aria-live="polite"></div>
+
+      <div class="form-card" style="margin-top: 28px;">
+        <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; color: var(--navy); margin: 0 0 8px; letter-spacing: -0.01em;">Want this written up and emailed?</p>
+        <p style="color: var(--text-light); margin: 0 0 22px;">Drop your email and your site URL and I'll send you a one-page audit — what's costing you customers, in order of impact. Takes me a few hours; you get it within a day. No charge, no signup.</p>
+        <form class="form" action="https://formsubmit.co/ajax/richard.harmon8976@gmail.com" method="POST"
+              data-mailform data-success="Got it — your audit request is in. I'll email you back within a day with a full written audit.">
+          <input type="hidden" name="_subject" value="New website-audit request from ramwebsites.site">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="audit_score" id="audit-score-field" value="">
+          <input type="hidden" name="audit_answers" id="audit-answers-field" value="">
+
+          <div class="form-row">
+            <div class="field">
+              <label for="a-email">Your email</label>
+              <input id="a-email" type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com">
+            </div>
+            <div class="field">
+              <label for="a-site">Your website URL</label>
+              <input id="a-site" type="text" name="website" required placeholder="yourbusiness.com">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-arrow">Send me my written audit</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-note">Or skip the audit and <a href="/contact/#book">book a 15-min call</a> — we can go through it live.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Don't want to audit — just want it fixed?</h2>
+    <p>We rebuild small-business sites from $599, flat. Mobile-first, conversion-focused, money-back if you don't love it.</p>
+    <a href="/pricing/" class="btn btn-primary btn-arrow">See packages</a>
+    <div><a href="/contact/#book" class="secondary-link">Or book a 15-min call →</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="brand">
+          <span class="brand-mark">RAM</span>
+          <span class="brand-text">
+            <strong>Website Builders</strong>
+            <span>Built in 5 Days</span>
+          </span>
+        </a>
+        <p class="tagline">Professional small business websites, delivered in days — not weeks. Built by a human in the US.</p>
+      </div>
+      <div>
+        <h5>Site</h5>
+        <ul>
+          <li><a href="/how-it-works/">How It Works</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/why-us/">Why Us</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Free Tools</h5>
+        <ul>
+          <li><a href="/audit/">Website Audit</a></li>
+          <li><a href="/contact/#book">Book a Call</a></li>
+          <li><a href="https://ram-website-builders.myshopify.com/blogs/news">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 RAM Website Builders. All rights reserved.</span>
+      <span><a href="/privacy/">Privacy</a> · US-based, US-owned.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js?v=6"></script>
+<script>
+  (() => {
+    const questions = document.querySelectorAll('.audit-q');
+    const answers = {};
+    const meterScore = document.getElementById('meter-score');
+    const meterH = document.getElementById('meter-h');
+    const result = document.getElementById('audit-result');
+    const scoreField = document.getElementById('audit-score-field');
+    const answersField = document.getElementById('audit-answers-field');
+
+    const VERDICTS = [
+      { max: 2, h: "Your site is actively losing you customers.", body: "Scoring 0–2 means most of the basics are missing. Every day this stays the same, customers who found your business in Google moved on to a competitor's site. The good news: it's fixable in a week, and it'll pay for itself with the first one or two jobs." },
+      { max: 4, h: "Your site is leaking — but it's patchable.", body: "Scoring 3–4 means you've got the foundation but you're losing customers at specific friction points. The fixes are usually mechanical (tap-to-call, clearer hero, real photos) and can be done without a full rebuild." },
+      { max: 6, h: "Your site is doing its job, mostly.", body: "Scoring 5–6 is solid. The remaining items are the difference between a site that works and one that performs. Worth tightening if you're serious about growth this year." },
+      { max: 8, h: "Your site is doing nearly everything right.", body: "Scoring 7–8 is rare. Either you built it carefully or you hired well. The only thing left is to keep it fresh — Google rewards updates, and a stale site slowly slides." }
+    ];
+
+    questions.forEach(q => {
+      const buttons = q.querySelectorAll('.yn button');
+      buttons.forEach(b => {
+        b.addEventListener('click', () => {
+          buttons.forEach(x => x.classList.remove('on'));
+          b.classList.add('on');
+          answers[q.dataset.q] = b.dataset.v;
+          render();
+        });
+      });
+    });
+
+    function render() {
+      const total = Object.keys(answers).length;
+      const yes = Object.values(answers).filter(v => v === 'yes').length;
+      meterScore.textContent = yes;
+      scoreField.value = yes + '/' + Object.keys(answers).length;
+      answersField.value = Object.entries(answers).map(([k, v]) => `Q${k}:${v}`).join(' · ');
+
+      if (total < 8) {
+        meterH.textContent = total === 0 ? "Answer the questions →" : `${total}/8 answered · keep going`;
+        result.classList.remove('show');
+        return;
+      }
+
+      const verdict = VERDICTS.find(v => yes <= v.max);
+      meterH.textContent = verdict.h;
+      result.innerHTML = `<strong style="color: var(--navy); font-family: var(--font-display); font-size: 1.1rem; font-weight: 500;">${verdict.h}</strong><br><br>${verdict.body}`;
+      result.classList.add('show');
+      result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  })();
+</script>
+</body>
+</html>
