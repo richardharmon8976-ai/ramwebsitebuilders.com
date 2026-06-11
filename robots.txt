@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ramwebsitebuilders-com.org/sitemap.xml
+Sitemap: https://ramwebsites.site/sitemap.xml
