@@ -113,6 +113,28 @@
     });
   });
 
+  // Gentle 3D tilt: panel cards lean toward the cursor
+  if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.tier, .hosting-card, .split-card, .proof').forEach(card => {
+      let raf = 0;
+      card.addEventListener('mousemove', (e) => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = 0;
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--ry', ((px - 0.5) * 5).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - py) * 5).toFixed(2) + 'deg');
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
   // Mark active nav link based on current pathname
   const path = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav-links a').forEach(a => {
