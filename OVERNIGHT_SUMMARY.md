@@ -30,12 +30,17 @@ Everything else is bonus.
 ### Shopify
 
 - **Audited all 6 products** — prices match the website exactly. No mismatches, no broken links.
-- **Three blog drafts created** (NOT published — review and publish whichever you want):
-  1. *"How Much Does a Small Business Website Cost in 2026? (Real Numbers)"* — pricing-transparency long-form, targets "small business website cost" searches.
-  2. *"7 Signs Your Website Is Losing You Customers (And How to Fix Each One)"* — diagnostic piece that funnels readers toward the /audit/ page and contact form.
-  3. *"What Every Plumber's Website Needs in 2026 (The 8-Point Checklist)"* — vertical-specific, targets local plumbing searches. (Template for similar posts on salons, restaurants, contractors etc. — same structure, swap the verticals.)
+- **Five blog drafts created** (NOT published — review and publish whichever you want):
+  1. *"How Much Does a Small Business Website Cost in 2026? (Real Numbers)"* — pricing-transparency long-form, by-the-numbers tone.
+  2. *"How Much Should a Small-Business Website Cost in 2026?"* — softer, more buyer's-guide tone.
+  3. *"How much should a small-business website cost in 2026?"* — third take on the same topic, casual voice.
 
-  All three are on your blog at: ram-website-builders.myshopify.com/admin → Online Store → Blog posts. They're saved with you as the author.
+  ⚠️ Posts 1–3 are all about pricing. **Pick the voice that sounds most like you and publish only one.** Delete the other two.
+
+  4. *"7 Signs Your Website Is Losing You Customers (And How to Fix Each One)"* — diagnostic piece that funnels readers toward the /audit/ page and contact form.
+  5. *"What Every Plumber's Website Needs in 2026 (The 8-Point Checklist)"* — vertical-specific, targets local plumbing searches. (Template for similar posts on salons, restaurants, contractors etc. — same structure, swap the verticals.)
+
+  All five are on your blog at: ram-website-builders.myshopify.com/admin → Online Store → Blog posts. They're saved with you as the author.
 
 ## Outstanding leads
 
