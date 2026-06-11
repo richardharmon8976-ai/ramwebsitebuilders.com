@@ -48,7 +48,7 @@ Then open <http://localhost:8000>.
 
 Once you've bought your domain:
 
-1. In Vercel → Project → **Settings → Domains** → add `ramwebsites.site` and `www.ramwebsites.site`.
+1. In Vercel → Project → **Settings → Domains** → add `ramwebsites.com` and `www.ramwebsites.com`.
 2. Vercel will show the exact DNS records to add at your domain registrar (usually one `A` record + one `CNAME`).
 3. SSL is automatic — Vercel issues a Let's Encrypt cert within minutes of DNS propagation.
 
@@ -115,10 +115,10 @@ This site is **only** the marketing layer.
 
 ## Launch checklist
 
-- [x] Buy `ramwebsites.site`
+- [x] Buy `ramwebsites.com`
 - [x] Deploy to Vercel
 - [ ] Point DNS at Vercel and verify SSL is active
-- [x] `robots.txt` and `sitemap.xml` point at ramwebsites.site
+- [x] `robots.txt` and `sitemap.xml` point at ramwebsites.com
 - [ ] Update the Open Graph image (currently uses default — add a 1200×630 PNG and set `<meta property="og:image">` on each page)
 - [ ] Run Lighthouse on the live URL; verify 90+ on Performance / Accessibility / Best Practices / SEO
 - [ ] Add Google Search Console and submit `sitemap.xml`

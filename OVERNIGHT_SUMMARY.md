@@ -16,7 +16,7 @@ Everything else is bonus.
 
 ### Site fixes (merged to main, deploying via Vercel)
 
-- **Pointed the whole site at `ramwebsites.site`** — canonical URLs, og:url, og:site_name, sitemap.xml, robots.txt. The old sitemap was pointing at a wrong domain (`ramwebsitebuilders-com.org`) — Google would've ignored it.
+- **Pointed the whole site at `ramwebsites.com`** — canonical URLs, og:url, og:site_name, sitemap.xml, robots.txt. The old sitemap was pointing at a wrong domain (`ramwebsitebuilders-com.org`) — Google would've ignored it.
 - **SEO foundation**:
   - JSON-LD structured data on the homepage (ProfessionalService, prices, offers)
   - JSON-LD FAQPage schema on /faq/ — eligible for Google's rich-result FAQ accordion in search
@@ -72,7 +72,7 @@ The other two submissions on May 12 were from `richard.harmon8976@gmail.com` (yo
 
 1. **0–10 min:** Read this file. Do the three TL;DR items.
 2. **10–25 min:** Open the three blog drafts in Shopify, edit any details you want different, publish whichever feel right. Even one good post indexed by Google is worth it.
-3. **25–35 min:** Once DNS is live, do a real test submission from your phone at `ramwebsites.site/contact` and `ramwebsites.site/audit`. Activate FormSubmit if it asks.
+3. **25–35 min:** Once DNS is live, do a real test submission from your phone at `ramwebsites.com/contact` and `ramwebsites.com/audit`. Activate FormSubmit if it asks.
 4. **35+ min:** Go reply to that maybe-lead from your drafts.
 
 Anything you don't want, tell me and I'll undo. Anything you want more of, tell me and I'll keep going.
